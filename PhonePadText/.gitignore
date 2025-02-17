@@ -1,6 +1,8 @@
 [Pp]hone[Pp]ad[Tt]ext/bin/
 [Pp]hone[Pp]ad[Tt]ext/obj/
 .idea/
+bin/
+obj/
 *.iml
 *.ipr
 *.iws

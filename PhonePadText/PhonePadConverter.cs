@@ -4,8 +4,9 @@
 
 using System.Collections;
 using System.Text;
+using static System.Console;
 
-class Solution {
+class PhonePadConvertorSolution {
     private static Dictionary<char, List<char>> phoneNoToCharacterMap = new()
     {
         { '1', ['&', '\'', '('] },
@@ -21,14 +22,14 @@ class Solution {
     };
     static void Main(String[] args)
     { 
-        Console.WriteLine(OldPhonePad("222 2 22"));
+        WriteLine(OldPhonePad("222"));
 
     }
 
     public static string  OldPhonePad(string input)
     {
         if (input == null || input.Length == 0) return ""; // Base condition
-        input = input + " "; // To extract last char of the sequence ex "2 222" 
+        input += " "; // To extract last char of the sequence ex "2 222" 
         List<char> resultList = [];
         char prevChar = '~'; // This will keep a track of prev chars being used and if a new char is changed in the stream
         int prevConsecutiveChars = 0; // Length of consecutive chars
@@ -45,7 +46,10 @@ class Solution {
                 {
                     if (prevChar != '~')
                     {
-                        resultList.Add(phoneNoToCharacterMap[prevChar][prevConsecutiveChars - 1]);
+                        // I am doing % (mod) here , although not mentioned in problem statement
+                        // I think it's nice to have eg 2222 will yield A , 22222 will yield B and so on ..
+                        int prevConsecutiveCharMod = (prevConsecutiveChars - 1) % phoneNoToCharacterMap[prevChar].Count + 1;
+                        resultList.Add(phoneNoToCharacterMap[prevChar][prevConsecutiveCharMod - 1]);
                     }
 
                     switch (c)
@@ -61,8 +65,8 @@ class Solution {
                             prevConsecutiveChars = 0;
                             break;
                         }
-                        case ' ':
-                            prevChar = '~';  // If this is space we dont need to accumulate in the output 
+                        case ' ' or '#' :
+                            prevChar = '~';  // If this is space or hash we dont need to accumulate in the output 
                             prevConsecutiveChars = 0;
                             break;
                         default:
@@ -73,7 +77,7 @@ class Solution {
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Error In retriving char from phone to char map " +e);
+                    WriteLine("Error In retrieving char from phone to char map " +e);
                     throw;
                 }
                 

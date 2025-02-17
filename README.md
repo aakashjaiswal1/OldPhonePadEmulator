@@ -24,7 +24,7 @@ This is a solution to the C# coding challenge posted [here](https://drive.google
 
 ## How to Test the Function to Emulate PhonePad?
 
-In the file **`PhonePadConvertor.cs`**, modify the line:
+In the file **`OldPhonePadEmulator/PhonePadText/PhonePadConverter.cs`**, modify the line:
 ```csharp
 WriteLine(OldPhonePad("222"))
 ```

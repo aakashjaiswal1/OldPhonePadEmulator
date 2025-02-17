@@ -1,22 +1,36 @@
-# Old Phone Pad Emulator
-## This is a solution to the C# coding challenge posted here -> 
-##### https://drive.google.com/file/d/1LMV0_YUqC2KqObQPnYd3mgQiIpUSVP7-/view
+# OldPhonePadEmulator
 
-How to  Install ?
+This is a solution to the C# coding challenge posted [here](https://drive.google.com/file/d/1LMV0_YUqC2KqObQPnYd3mgQiIpUSVP7-/view).
 
-Clone the repo "git clone https://github.com/aakashjaiswal1/OldPhonePadEmulator.git"
+## How to Install?
 
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/aakashjaiswal1/OldPhonePadEmulator.git
+   ```
 
-Change into the directory "cd OldPhonePadEmulator"
+2. Change into the directory:
+   ```bash
+   cd OldPhonePadEmulator
+   ```
 
-Open the given project in you IDE (Rider discussed here)
+3. Open the given project in your IDE (Rider discussed here).  
+   After opening the project, the IDE will automatically detect `.sln` dependencies and set up the project.
 
-After opening the project IDE will automatically detect .sln dependencies and set up the project.
+4. Restore the dependencies using:
+   ```bash
+   dotnet restore
+   ```
 
-Restore the dependencies using "dotnet restore"
+## How to Test the Function to Emulate PhonePad?
 
-## How to test the function to emulate phonePad ?
+In the file **`PhonePadConvertor.cs`**, modify the line:
+```csharp
+WriteLine(OldPhonePad("222"))
+```
+to test it with actual input.
 
-In the file PhonePadConvertor.cs modify the line WriteLine(OldPhonePad("222")) to test it with actual input.
-
-The current UTs can be found at OldPhonePadEmulator/PhonePadText.Tests/PhonePadConvertorSolutionTest.cs
+The current unit tests can be found at:
+```
+OldPhonePadEmulator/PhonePadText.Tests/PhonePadConvertorSolutionTest.cs
+```
